@@ -238,6 +238,76 @@ Start with step 1?
 | Simplicity First | Strategy pattern for single discount calculation | One function until complexity is actually needed |
 | Surgical Changes | Reformats quotes, adds type hints while fixing bug | Only change lines that fix the reported issue |
 | Goal-Driven | "I'll review and improve the code" | "Write test for bug X → make it pass → verify no regressions" |
+| Local-First | Assumes remote/cloud when user says "local" | Verify endpoint URL and port before suggesting alternatives |
+| Root Cause | Explains fallback without checking primary service | Trace full chain: browser → API → downstream → DB |
+| Clarify | Makes 3 changes instead of asking "which part?" | Ask one clarifying question before acting |
+
+## Anti-Patterns: Local-First
+
+**User Request:** "Set up the local TTS server"
+
+**Bad (Assumes Remote):**
+```
+You can use the cloud TTS API: https://api.cloud-tts.com/v1/synthesize
+```
+
+**Good (Local-First):**
+```
+The local TTS endpoint is http://127.0.0.1:10101/tts.
+Is the Piper server running? Let me check:
+curl -s http://127.0.0.1:10101/health
+
+If it's not running, start it with:
+python src/lib/piper-server.py --port 10101
+```
+
+## Anti-Patterns: Root Cause
+
+**User Request:** "The TTS isn't working"
+
+**Bad (Explains Symptom):**
+```
+The TTS fell back to Web Speech API because the Piper server isn't available.
+```
+
+**Good (Traces Chain):**
+```
+Let me trace the chain:
+
+1. Browser → `/api/tts` → Next.js proxy
+2. Next.js → `http://127.0.0.1:10101/tts` → Piper server
+
+The Piper server isn't running on port 10101, so the fallback kicked in.
+The real problem is Piper isn't started, not that "TTS failed."
+```
+
+## Anti-Patterns: Clarify
+
+**User Request:** "the piper tts endpoint"
+
+**Bad (Guesses):**
+```
+I'll update the endpoint URL and voice config.
+```
+
+**Good (Clarifies):**
+```
+You mentioned "the piper tts endpoint" — which part do you want to change?
+
+1. The Next.js proxy URL (`/api/tts` → Piper server)
+2. The Piper server config (port, voice, host)
+3. The Web Speech API fallback
+
+Which one?
+```
+
+## Key Insight
+
+The "overcomplicated" examples aren't obviously wrong — they follow design patterns and best practices. The problem is **timing**: they add complexity before it's needed, which makes code harder to understand, introduces more bugs, takes longer to implement, and is harder to test.
+
+The "simple" versions are easier to understand, faster to implement, easier to test, and can be refactored later when complexity is actually needed.
+
+**Good code is code that solves today's problem simply, not tomorrow's problem prematurely.**
 
 ## Key Insight
 

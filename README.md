@@ -2,7 +2,7 @@
 
 Drop-in agent skills and rules for [OpenCode](https://opencode.ai).
 
-## Quick Start: Fresh Install in 2 Steps
+## Quick Start: Fresh Install
 
 ### 1. Copy the files
 
@@ -25,38 +25,118 @@ Add to your project's `opencode.json`:
 }
 ```
 
+### 3. (Optional) Enable agents
+
+If you want to use the multi-agent workflow system, also add agent permissions:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "skill": { "*": "allow" },
+    "agent": { "*": "allow" }
+  }
+}
+```
+
+Agents are optional — most projects only need skills.
+
 ## What's Included
 
 | Skill | Triggers |
 |-------|---------|
 | `architect` | architecture, design decision, tradeoffs, ADR |
 | `build` | install deps, setup project, compile, build |
+| `clarify-first` | which part, clarify, ambiguous reference, already discussed |
 | `debug` | bug, crash, wrong output, regression |
+| `diagram` | architecture blueprint, generate architecture documentation, create architecture diagrams |
 | `document` | write docs, document this, README |
+| `local-first-check` | local, offline, runs locally, my machine |
 | `optimize` | slow, performance, bottleneck, profile |
 | `reflect` | remember, reflect, learnings, corrections |
 | `refactor` | refactor, clean up, technical debt, restructure |
 | `review` | review this code, code review, quality check |
+| `root-cause-trace` | root cause, trace chain, why is this happening, do not fix symptom |
 | `secure` | security, vulnerability, owasp, CVE |
 | `ship` | deploy, release, publish, ship it |
 | `test` | write tests, tdd, test-driven |
 | `troubleshoot` | CI failing, dependency conflict, env, config |
 | `karpathy-guidelines` | overcomplicated, simplify, surgical, assumptions, verify goals |
+| `observability` | structured logging, distributed tracing, metrics, health checks |
+
+## Agents
+
+Multi-agent workflow system for enterprise development:
+
+| Agent | Focus |
+|-------|-------|
+| `ideation-agent` | Requirements, user stories, architecture options |
+| `prototype-agent` | Rapid MVP prototypes |
+| `poc-agent` | Production-focused PoC with Clean Architecture |
+| `pilot-agent` | Production-ready code with quality gates |
+| `product-agent` | Production maintenance and monitoring |
+| `product-owner-agent` | Story IDs, backlog prioritization |
+| `scrum-master-agent` | Sprint planning, DoR/DoD, traceability |
+| `developer-agent` | Story implementation with tests |
+| `qa-agent` | Test coverage, quality gates |
+| `security-agent` | Threat modeling, security reviews |
+| `devops-agent` | CI/CD, pipelines, deployment |
+| `code-reviewer-agent` | Code quality, patterns, best practices |
+| `security-auditor-agent` | Security audits, OWASP compliance |
+| `test-generator-agent` | Unit/integration test generation |
 
 ## What Each File Does
 
 | File | Purpose |
 |------|---------|
 | `AGENTS.md` | Agent conversation rules, skill trigger mappings, reflect system config |
-| `.opencode/skills/*/SKILL.md` | Per-skill workflows, guardrails, and verification steps (13 skills) |
+| `.opencode/skills/*/SKILL.md` | Per-skill workflows, guardrails, and verification steps (18 skills) |
+| `.opencode/agents/*.md` | Multi-agent workflow definitions (14 agents) |
 | `opencode.json` | Opencode config with permission grants |
 | `EXAMPLES.md` | Concrete coding-pitfall examples from karpathy-guidelines for reference |
 
-## Customization
+## How to Build Skills
 
-- **Add a skill**: `.opencode/skills/<name>/SKILL.md` — opencode discovers it automatically
-- **Edit skills**: modify the SKILL.md files to fit your project's conventions
-- **Edit agent rules**: modify AGENTS.md to add trigger phrases, project-specific rules, or memory targets
+Skills grow from real conversation patterns. Here's how to develop them:
+
+### 1. Capture corrections
+The `reflect` skill (Stage 1) automatically watches for corrections during conversation. Run `/reflect` to review what was captured.
+
+### 2. Route learnings
+- **Existing skill** — if a correction relates to a skill, route it to that skill's SKILL.md
+- **New skill** — if a repeated workflow isn't covered, create `.opencode/skills/<name>/SKILL.md`
+- **Project rule** — if it's a global convention, add it to AGENTS.md
+
+### 3. Sync triggers
+Every new skill needs its trigger phrases mirrored in AGENTS.md's Skill Selection table. This is what makes the skill auto-activate.
+
+### 4. Review periodically
+- `/reflect --dedupe` — find contradictions and duplicates
+- `/reflect --organize` — clean up overgrown files
+- Update README.md when adding/removing skills
+
+### Suggested skills to add
+
+| Skill | Triggers | Purpose |
+|-------|----------|---------|
+| `planning` | task breakdown, estimation, prioritization, roadmap | Break features into tasks, estimate effort, prioritize backlog |
+| `refactor-patterns` | extract method, extract class, introduce interface, inline | Common refactoring patterns with step-by-step workflows |
+| `debug-patterns` | binary search, bisect, minimize reproduction, isolate | Systematic debugging strategies beyond the basic debug skill |
+| `docstrings` | inline docs, function docs, parameter docs, return docs | Docstring conventions for any language (JSDoc, reStructuredText, godoc, rustdoc) |
+| `deployment-strategies` | blue-green, canary, rolling update, feature flags | Deployment patterns and strategies |
+| `api-design` | REST, GraphQL, endpoint design, pagination, filtering | API design patterns and conventions |
+| `database` | migration, schema, indexing, query optimization | Database patterns for any ORM or SQL |
+| `error-handling` | error types, error codes, user messages, logging | Consistent error handling patterns |
+| `config-management` | env vars, config files, feature flags, secret rotation | Configuration management patterns |
+| `migration` | data migration, schema migration, zero-downtime, rollback | Safe migration patterns |
+
+### Suggested agents to add
+
+| Agent | Focus |
+|-------|-------|
+| `planning-agent` | Task breakdown, estimation, prioritization, roadmap |
+| `api-designer` | REST/GraphQL endpoint design, pagination, filtering |
+| `database-architect` | Schema design, indexing, query optimization, migrations |
 
 ## License
 

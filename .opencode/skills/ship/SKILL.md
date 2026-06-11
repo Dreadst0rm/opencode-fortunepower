@@ -28,11 +28,36 @@ metadata:
 - **Minor (feature)**: backward-compatible new functionality
 - **Patch (fix)**: backward-compatible bug fixes
 
+## Quality Gates
+
+### Coverage Gate
+- Enforce minimum coverage threshold (default: 80% for critical layers)
+- Fail build if coverage drops below threshold
+- Report coverage delta (before/after)
+
+### Traceability Gate
+- Verify story → test linkage exists
+- Require Evidence Pack or equivalent traceability artifact on PR
+- Fail build if traceability checks fail
+
+### Security Gate
+- Run dependency vulnerability scan (OWASP, npm audit, pip audit)
+- Verify no secrets in code (gitleaks, trufflehog, or equivalent)
+- Fail build if critical/high vulnerabilities found
+
+### Validation Gate
+- Run project validation scripts (if available)
+- Verify documentation is up to date
+- Verify API docs match current implementation
+
 ## Pre-flight checklist
 - [ ] Linter passes with no errors
 - [ ] Typechecker passes with no errors
 - [ ] Build succeeds
 - [ ] All tests pass
+- [ ] Coverage meets threshold (>=80% for critical layers)
+- [ ] No critical/high security vulnerabilities
+- [ ] Story → test traceability verified
 - [ ] Version is bumped correctly (semver)
 - [ ] Changelog is updated (if applicable)
 - [ ] Git tag is created
@@ -43,3 +68,4 @@ metadata:
 - The version tag exists in git
 - The deployment succeeded (health check passes)
 - Rollback plan exists if needed
+- All quality gates passed (coverage, traceability, security, validation)

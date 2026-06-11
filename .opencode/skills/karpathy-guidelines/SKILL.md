@@ -75,8 +75,34 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ---
 
-These guidelines are working if you see:
-- Fewer unnecessary changes in diffs — only requested changes appear
-- Fewer rewrites due to overcomplication — code is simple the first time
-- Clarifying questions come before implementation — not after mistakes
-- Clean, minimal PRs — no drive-by refactoring or "improvements"
+## Anti-Pattern: Jumping to Implementation
+
+**User Request:** "Walk through the app and fix issues"
+
+**Bad Response (Assumes thresholds, guesses behavior):**
+```
+// Writes 7 hardcoded phase thresholds without asking
+// Writes resetState() helper when window.location.href would work
+// Assumes navigation placement instead of asking where
+```
+
+**Good Response (States assumptions, asks for confirmation):**
+```
+Before fixing, I need to clarify:
+
+1. **Phase progression** — How should phases progress? By lesson count? By score? By time?
+2. **Celebration redirect** — After finishing, do you want to go home, or stay on the lesson page?
+3. **Navigation** — Where exactly should the home link go? Header? Somewhere else?
+
+I'll wait for your answer before writing code.
+```
+
+## Key Insight
+
+The "overcomplicated" examples aren't obviously wrong — they follow design patterns and best practices. The problem is **timing**: they add complexity before it's needed, which makes code harder to understand, introduces more bugs, takes longer to implement, and is harder to test.
+
+The "simple" versions are easier to understand, faster to implement, easier to test, and can be refactored later when complexity is actually needed.
+
+**Good code is code that solves today's problem simply, not tomorrow's problem prematurely.**
+
+**Best code asks questions before writing a single line.**
