@@ -25,7 +25,7 @@ metadata:
 - No secrets in repo; .env.example only
 - Require authn/authz for protected endpoints
 - Enforce secure defaults and fail-closed behavior
-- Ensure PR Evidence Pack references security review evidence (or documents an approved exception)
+- Ensure PR evidence artifacts reference security review evidence (or document an approved exception)
 
 ## Output Files
 - Threat model updates for relevant stories
@@ -36,4 +36,4 @@ metadata:
 - No secrets in code
 - Authn/authz is required for protected endpoints
 - Secure defaults are enforced
-- Security evidence is referenced in PR Evidence Pack
+- Security evidence is referenced in PR artifacts (if applicable)

@@ -19,13 +19,13 @@ metadata:
 2. **Add tests** — unit/integration tests with story ID metadata
 3. **Update documentation** — ADRs when architecture changes
 4. **Run validation scripts** — before handoff
-5. **Create PR** — via Autopilot or equivalent with evidence artifacts
+5. **Create PR** — via an autopilot tool or equivalent with evidence artifacts
 
 ## Guardrails
 - No secrets in code; use env vars and .env.example
-- Commit messages must include story IDs
+- Commit messages should include story/issue IDs (if using traceability)
 - Run validation scripts before handoff
-- Prefer Autopilot or equivalent for branch/PR creation and evidence artifacts when working from a story
+- Prefer an autopilot tool or equivalent for branch/PR creation and evidence artifacts when working from a story
 
 ## Output Files
 - Code changes aligned to story acceptance criteria
@@ -34,6 +34,6 @@ metadata:
 
 ## Verification
 - Code aligns to story acceptance criteria
-- Tests have story ID metadata
+- Tests have story/issue ID metadata (if using traceability)
 - No secrets in code
 - Validation scripts pass

@@ -25,7 +25,7 @@ metadata:
 - Fail builds on traceability or coverage violations
 - Use environment-based configuration and secure defaults
 - Keep pipelines reproducible and offline-capable when required
-- Ensure PRs have an Evidence Pack comment and linked work items before release readiness sign-off
+- Ensure PRs have evidence artifacts or comments and linked work items before release readiness sign-off
 
 ## Output Files
 - Passing CI pipelines (GitHub Actions, Azure DevOps, or equivalent)

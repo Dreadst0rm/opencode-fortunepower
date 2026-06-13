@@ -80,8 +80,8 @@ For each learning, record:
 - **Type** — correction / positive / explicit / guardrail
 - **Confidence** — 0.0 to 1.0
 - **Extracted learning** — actionable statement for AGENTS.md
-- **Story ID** — if using traceability, link to ACF-### or project equivalent
-- **Evidence Pack** — if applicable, reference PR Evidence Pack or equivalent
+- **Story ID** — if using traceability, link to the project's story/issue ID format
+- **Evidence** — if applicable, reference PR evidence or equivalent traceability artifact
 
 ### Step 2: Filter and Deduplicate
 
@@ -97,13 +97,13 @@ Display learnings in a table:
 ```
 LEARNINGS SUMMARY — [N] items found
 
-#  Learning                           Target   Status   Story ID   Evidence
-1   "Use gpt-5.1 for reasoning"        global   new      ACF-042    PR #128
-2   "Run tests before deploying"       skill    new                  PR #127
-3   "Check .env for service URLs"     project   new      ACF-041
+#  Learning                           Target   Status   ID        Evidence
+1   "Use gpt-5.1 for reasoning"        global   new      PROJ-042  PR #128
+2   "Run tests before deploying"       skill    new                       PR #127
+3   "Check .env for service URLs"     project   new      PROJ-041
 ```
 
-If traceability is enabled (story IDs, Evidence Packs), include those columns. Otherwise, omit them.
+If traceability is enabled (story/issue IDs, evidence artifacts), include those columns. Otherwise, omit them.
 
 ### Step 4: Route to Targets
 

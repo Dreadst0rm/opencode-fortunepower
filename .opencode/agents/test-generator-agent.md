@@ -19,20 +19,18 @@ metadata:
 2. **Identify test cases** — happy path, edge cases, error cases
 3. **Generate unit tests** — for business logic
 4. **Generate integration tests** — for API endpoints
-5. **Ensure test coverage meets requirements** — >=80% for critical layers
+5. **Ensure test coverage meets requirements** — project-specific threshold (commonly >=80% for critical layers)
 6. **Run tests to verify they pass** — all tests must pass
-7. **Link tests to story IDs** — for traceability
+7. **Link tests to story/issue IDs** — for traceability (if using traceability)
 
 ## Test Organization
+Follow the project's existing test directory structure. A common pattern:
 ```
 tests/
 ├── Unit/
-│   ├── Domain/
-│   ├── Application/
-│   └── Infrastructure/
+│   └── <component>/
 └── Integration/
-    ├── Api/
-    └── Database/
+    └── <endpoint>/
 ```
 
 ## Test Patterns
@@ -44,5 +42,5 @@ tests/
 ## Verification
 - Tests follow AAA pattern
 - All tests pass
-- Coverage meets threshold (>=80%)
-- Tests reference story IDs for traceability
+- Coverage meets project threshold
+- Tests reference story/issue IDs for traceability (if applicable)

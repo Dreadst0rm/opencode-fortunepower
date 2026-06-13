@@ -15,7 +15,7 @@ metadata:
 - "correlation IDs", "request tracking", "observability"
 
 ## Workflow
-1. **Set up structured logging** — use structured logging with properties (Serilog, Winston, structlog, log4j)
+1. **Set up structured logging** — use structured logging with properties (Winston, structlog, Serilog, log4j, or framework equivalent)
 2. **Add distributed tracing** — OpenTelemetry or equivalent for request tracking across services
 3. **Configure metrics collection** — Prometheus, Datadog, or equivalent for application metrics
 4. **Implement health checks** — liveness and readiness probes for Kubernetes

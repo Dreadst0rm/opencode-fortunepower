@@ -23,9 +23,9 @@ metadata:
 
 ## Guardrails
 - Enforce environment-based configuration (no secrets in code)
-- Maintain story → test linkage and commit conventions
+- Maintain story/issue → test linkage and commit conventions (if using traceability)
 - Use approved patterns (DI, logging, async I/O)
-- Keep PR Evidence Pack updated via Autopilot or equivalent for review readiness
+- Keep PR evidence artifacts updated via an autopilot tool or equivalent for review readiness
 
 ## Output Files
 - Clean Architecture solution with proper boundaries

@@ -48,8 +48,8 @@ When a task matches a skill's trigger phrases, you MUST load and follow that ski
 | production PoC, Clean Architecture, security baseline, traceability | `poc-agent` |
 | production-ready, quality gates, coverage requirements, CI workflows | `pilot-agent` |
 | production maintenance, incident report, performance monitoring, runbooks | `product-agent` |
-| story IDs, backlog prioritization, acceptance criteria, DoR, MoSCoW | `product-owner-agent` |
-| sprint planning, DoR, DoD, traceability compliance, velocity, WIP limits | `scrum-master-agent` |
+| story IDs, backlog prioritization, acceptance criteria, definition of ready, MoSCoW | `product-owner-agent` |
+| sprint planning, definition of ready, definition of done, traceability compliance, velocity, WIP limits | `scrum-master-agent` |
 | implement story, code changes, unit tests, Clean Architecture | `developer-agent` |
 | test coverage, quality gates, traceability validation, release readiness | `qa-agent` |
 | threat modeling, security review, vulnerability assessment, OWASP | `security-agent` |
@@ -61,7 +61,7 @@ When a task matches a skill's trigger phrases, you MUST load and follow that ski
 
 ## Agents
 
-Multi-agent workflow system adapted from AI Coding Factory. Agents are loaded via `.opencode/agents/*.md` and activated by trigger phrases in the Skill Selection table above.
+Multi-agent workflow system. Agents are loaded via `.opencode/agents/*.md` and activated by trigger phrases in the Skill Selection table above.
 
 ### Workflow Pipeline
 Ideation → Prototype → PoC → Pilot → Product
@@ -75,7 +75,7 @@ Ideation → Prototype → PoC → Pilot → Product
 | `pilot-agent` | Production-ready code, quality gates, comprehensive testing |
 | `product-agent` | Production maintenance, incident reports, performance monitoring |
 | `product-owner-agent` | Story IDs, backlog prioritization, acceptance criteria |
-| `scrum-master-agent` | Sprint planning, DoR/DoD, traceability compliance |
+| `scrum-master-agent` | Sprint planning, Definition of Ready/Definition of Done, traceability compliance |
 | `developer-agent` | Story implementation, tests, documentation |
 | `qa-agent` | Test coverage, quality gates, traceability validation |
 | `security-agent` | Threat modeling, security reviews, secrets management |
@@ -85,17 +85,17 @@ Ideation → Prototype → PoC → Pilot → Product
 | `test-generator-agent` | Unit/integration test generation, coverage, AAA pattern |
 
 ### Traceability
-Agents use story IDs (ACF-### format or project equivalent) and Evidence Packs for traceability:
-- **Story ID**: Links requirements → code → tests → commits → releases
-- **Evidence Pack**: PR comment/thread with traceability artifacts (tests, docs, coverage)
-- **Autopilot**: CLI tool for branch/PR creation and Evidence Pack generation (optional)
+Agents use story/issue IDs and evidence artifacts for traceability (when the project uses them):
+- **Story/Issue ID**: Links requirements → code → tests → commits → releases
+- **Evidence Artifacts**: PR comment/thread with traceability artifacts (tests, docs, coverage)
+- **Autopilot Tool**: CLI tool for branch/PR creation and evidence artifact generation (optional)
 
-### Corporate R&D Policy
-Agents follow the project's CORPORATE_RND_POLICY or equivalent governance. Refuse to proceed on policy violations or missing required artifacts.
+### Governance
+Agents follow any applicable corporate R&D policy or governance framework. Refuse to proceed on policy violations or missing required artifacts.
 
 ## Self-Learning (Reflect System)
 
-Two-stage system from claude-reflect: **Stage 1** (automatic) captures corrections during conversation; **Stage 2** (manual `/reflect`) reviews and writes learnings to AGENTS.md or skill files.
+Two-stage system: **Stage 1** (automatic) captures corrections during conversation; **Stage 2** (manual `/reflect`) reviews and writes learnings to AGENTS.md or skill files.
 
 **Capture Rules:**
 - `remember:` markers are always captured

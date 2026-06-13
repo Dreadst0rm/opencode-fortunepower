@@ -25,7 +25,7 @@ metadata:
 - Do not assign story IDs unless using a traceability system
 - Avoid unverified claims; mark assumptions and validate them
 - Ensure stories are testable and traceable end-to-end
-- Follow the project's CORPORATE_RND_POLICY or equivalent governance
+- Follow any applicable corporate R&D policy or governance framework
 
 ## Output Files
 - `requirements.md` — functional and non-functional requirements

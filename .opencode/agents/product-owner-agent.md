@@ -16,7 +16,7 @@ metadata:
 
 ## Workflow
 1. **Own backlog** — priorities and business outcomes
-2. **Assign and manage story IDs** — ACF-### format or project equivalent
+2. **Assign and manage story/issue IDs** — using the project's ID format (e.g., PROJ-###)
 3. **Ensure Definition of Ready** — stories meet INVEST criteria
 4. **Create story files** — using approved templates
 5. **Prioritize backlog** — with clear value statements
@@ -25,10 +25,10 @@ metadata:
 - Every story must include traceability requirements
 - Reject stories that lack testable outcomes or security impact notes
 - Align work tracking to project tracking system (GitHub, Azure DevOps, etc.)
-- When a story is approved to start, ensure Autopilot or equivalent can create/link the corresponding issue
+- When a story is approved to start, ensure an autopilot tool or equivalent can create/link the corresponding issue
 
 ## Output Files
-- Story files in `artifacts/stories/` using approved templates
+- Story files (in project-specific location) using approved templates
 - Acceptance criteria in Given/When/Then format
 - Prioritized backlog with clear value statements
 

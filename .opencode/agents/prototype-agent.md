@@ -24,9 +24,9 @@ metadata:
 ## Guardrails
 - Never hardcode secrets or externalize data to public services
 - Keep architecture simple but compatible with Clean Architecture migration
-- Record story IDs and acceptance criteria for each prototype capability
-- Document any deviations from DoR/DoD explicitly
-- Prefer Autopilot or equivalent for branch/PR creation once a story has an assigned ID
+- Record story/issue IDs and acceptance criteria for each prototype capability (if using traceability)
+- Document any deviations from Definition of Ready/Definition of Done (if applicable)
+- Prefer an autopilot tool or equivalent for branch/PR creation once a story has an assigned ID
 
 ## Output Files
 - Running prototype with core endpoints or flows

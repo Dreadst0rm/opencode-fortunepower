@@ -35,10 +35,10 @@ metadata:
 - Fail build if coverage drops below threshold
 - Report coverage delta (before/after)
 
-### Traceability Gate
-- Verify story → test linkage exists
-- Require Evidence Pack or equivalent traceability artifact on PR
-- Fail build if traceability checks fail
+### Traceability Gate (optional)
+- If the project uses story tracking, verify story → test linkage exists
+- If the project requires evidence artifacts, verify they are present on PR
+- Fail build if traceability checks are enforced and fail
 
 ### Security Gate
 - Run dependency vulnerability scan (OWASP, npm audit, pip audit)
@@ -57,7 +57,7 @@ metadata:
 - [ ] All tests pass
 - [ ] Coverage meets threshold (>=80% for critical layers)
 - [ ] No critical/high security vulnerabilities
-- [ ] Story → test traceability verified
+- [ ] Story → test traceability verified (if project uses story tracking)
 - [ ] Version is bumped correctly (semver)
 - [ ] Changelog is updated (if applicable)
 - [ ] Git tag is created
@@ -68,4 +68,4 @@ metadata:
 - The version tag exists in git
 - The deployment succeeded (health check passes)
 - Rollback plan exists if needed
-- All quality gates passed (coverage, traceability, security, validation)
+- All quality gates passed (coverage, traceability if applicable, security, validation)

@@ -24,11 +24,11 @@ metadata:
 ## Guardrails
 - Run validation scripts before declaring readiness
 - Do not declare readiness without passing checks
-- Require an up-to-date Evidence Pack comment/thread on the PR before handoff
-- Follow the project's CORPORATE_RND_POLICY or equivalent governance
+- Require up-to-date evidence artifacts or PR comments before handoff (if the project requires them)
+- Follow any applicable corporate R&D policy or governance framework
 
 ## Output Files
-- Coverage >= 80% for Domain/Application layers
+- Coverage meets project threshold (commonly >=80% for critical layers)
 - Complete docs: architecture, modules, API, operations
 - CI workflows/pipelines passing with quality gates
 - Traceability report and release notes artifacts
@@ -37,4 +37,4 @@ metadata:
 - Coverage meets threshold (>=80%)
 - All validation scripts pass
 - Documentation is complete
-- Traceability is verified (story → test → commit → release)
+- Traceability is verified (story → test → commit → release, if applicable)

@@ -22,19 +22,19 @@ metadata:
 5. **Keep documentation current** — runbooks and operational docs
 
 ## Guardrails
-- All changes require story IDs, tests, and documentation updates
+- All changes should have story/issue IDs, tests, and documentation updates (if using traceability)
 - No emergency fixes without post-incident review and retro
 - Coordinate with DevOps and Security on patching
-- Ensure PR has an Evidence Pack (or document an approved exception)
+- Ensure PR has evidence artifacts (or document an approved exception)
 
 ## Output Files
 - Incident reports and remediation plans
-- Updated backlog with story IDs for fixes/enhancements
+- Updated backlog with story/issue IDs for fixes/enhancements
 - Release notes generated from commits and stories
 - Updated runbooks and operational docs
 
 ## Verification
 - Incident reports are documented
-- Backlog is current with story IDs
+- Backlog is current with story/issue IDs
 - Release notes are generated from commits
 - Runbooks are up to date

@@ -15,17 +15,17 @@ metadata:
 - "coverage report", "pass/fail evidence"
 
 ## Workflow
-1. **Validate test coverage** — enforce coverage thresholds (>=80% for Domain/Application layers)
+1. **Validate test coverage** — enforce coverage thresholds (commonly >=80% for critical layers)
 2. **Ensure test pyramid compliance** — unit, integration, E2E tests
 3. **Verify traceability** — story → test linkage
 4. **Generate coverage reports** — pass/fail evidence
 5. **Sign off or list defects** — before release
 
 ## Guardrails
-- Enforce coverage thresholds (>=80% for Domain/Application layers)
-- Every story must have at least one automated test
-- Fail release if traceability checks fail
-- Require up-to-date Evidence Pack comment (Autopilot) before sign-off
+- Enforce coverage thresholds (project-specific, commonly >=80% for critical layers)
+- Every story/issue should have at least one automated test
+- Fail release if traceability checks are enforced and fail
+- Require up-to-date evidence artifacts or PR comments (Autopilot or equivalent) before sign-off
 
 ## Output Files
 - Coverage reports and pass/fail evidence
@@ -33,7 +33,7 @@ metadata:
 - Test plan updates and release readiness notes
 
 ## Verification
-- Coverage meets threshold (>=80%)
-- Every story has at least one automated test
-- Traceability is verified (story → test)
+- Coverage meets project threshold
+- Every story/issue has at least one automated test
+- Traceability is verified (story → test, if applicable)
 - Release readiness is documented
